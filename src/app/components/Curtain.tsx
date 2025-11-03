@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 
-export default function Curtain() {
+export default function Curtain({ onAnimationComplete } : { onAnimationComplete: () => void }) {
 
   return (
     <div className="relative w-screen h-screen overflow-hidden">
@@ -27,6 +27,7 @@ export default function Curtain() {
             initial={{ x: 0 }}
             animate={{ x: "100%" }}
             transition={{ duration: 5, ease: [0.8, 0, 0.2, 0.5] }}
+            onAnimationComplete={onAnimationComplete}
             className="absolute top-0 right-0 w-1/2 h-full z-100"
           >
             <Image 
