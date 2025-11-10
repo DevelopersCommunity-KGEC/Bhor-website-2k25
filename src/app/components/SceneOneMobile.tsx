@@ -40,13 +40,13 @@ export default function SceneOne() {
       <div className="fixed bottom-[-50] left-0 w-full h-2/3 z-30 overflow-hidden">
 
         <motion.img
-          src="/Ground_layer1.png"
+          src="/Ground_layer1_Mobile.png"
           alt="Layer 1"
           className="absolute bottom-0 left-0 w-full h-full z-30"
         />
 
         <motion.img 
-          src="/Ground_layer2.png"
+          src="/Ground_layer2_Mobile.png"
           alt="Layer 2"
           className="absolute bottom-15 left-0 w-full h-1/2 z-31"
           initial={{ y: 0 }}
@@ -55,7 +55,7 @@ export default function SceneOne() {
         />
 
         <motion.img 
-          src="/Ground_layer3.png"
+          src="/Ground_layer2_Mobile.png"
           alt="Layer 3"
           className="absolute bottom-7 left-0 w-full h-1/3 z-32"
           initial={{ y: 0 }}
@@ -64,7 +64,7 @@ export default function SceneOne() {
         />
 
         <motion.img 
-          src="/Ground_layer2.png"
+          src="/Ground_layer2_Mobile.png"
           alt="Layer 2"
           className="absolute bottom-[-100] left-0 w-full h-1/2 z-33"
           initial={{ y: 0 }}
