@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { useState, useEffect, use } from "react";
 import Curtain from "./components/Curtain";
-import VillageScene from "./components/VillageScene";
+import VillageScene from "./components/Carousel";
 import SceneOne from "./components/SceneOne";
 import Border from "./components/Border";
 import SceneOneMobile from "./components/SceneOneMobile";

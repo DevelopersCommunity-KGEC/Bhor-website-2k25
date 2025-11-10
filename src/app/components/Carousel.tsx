@@ -3,7 +3,7 @@
 import React from 'react'
 import Image from 'next/image'
 
-const VillageScene = () => {
+const Carousel = () => {
   return (
     <div className='relative w-screen h-screen overflow-hidden'>
         <div>
@@ -36,4 +36,4 @@ const VillageScene = () => {
   )
 }
 
-export default VillageScene
+export default Carousel
