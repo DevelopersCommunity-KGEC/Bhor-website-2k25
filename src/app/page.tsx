@@ -87,7 +87,7 @@ export default function Home() {
       </div>
       
 
-      {/* <VillageScene /> */}
+      <VillageScene />
     </>
   );
 }
