@@ -81,7 +81,7 @@ const SecondSection = ({
           )}
         </div>
       )}
-      <div className="pt-0 lg:pt-[14vh] h-screen w-fit">
+      <div className="pt-0 lg:pt-[14vh] h-screen w-fit mb-20">
         <AutoCarousel
           setMagNo={setMagNo}
           setDwnldIsClicked={setDwnldIsClicked}
