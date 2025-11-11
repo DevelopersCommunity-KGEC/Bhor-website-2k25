@@ -106,7 +106,7 @@ function Book() {
       <div className="page" style={{ background: 'transparent' }}>
         <div className="page-content cover">
           <img 
-            src="https://upload.wikimedia.org/wikipedia/commons/9/98/International_Pok%C3%A9mon_logo.svg" 
+            src="./book/1.jpg" 
             alt="Pokémon Logo" 
             className="pokemon-logo"
           />
@@ -118,21 +118,10 @@ function Book() {
           <div className="page-content">
             <div className="pokemon-container">
               <img 
-                src={`/book/${index + 1}.jpg`} 
+                src={`/book/${index + 2}.jpg`} 
                 alt={pokemon.name} 
               />
-              <div className="pokemon-info">
-                <h2 className="pokemon-name">{pokemon.name}</h2>
-                <p className="pokemon-number">#{pokemon.id}</p>
-                <div>
-                  {pokemon.types.map((type) => (
-                    <span key={type} className={`pokemon-type type-${type.toLowerCase()}`}>
-                      {type}
-                    </span>
-                  ))}
-                </div>
-                <p className="pokemon-description">{pokemon.description}</p>
-              </div>
+             
             </div>
           </div>
         </div>
