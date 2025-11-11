@@ -67,25 +67,25 @@ export default function Home() {
 
         {/* LEFT BORDER — fixed alignment and size */}
         
-          <div className="absolute w-full h-full left-[47.8%]">
+          <div className="absolute left-0 top-0 h-full w-[5vw] min-w-[20px] max-w-[60px]">
             <Image 
-                    src="/BorderVertical.png"
+                    src="/Borderv.png"
                     alt="Border"
                     width={1920}
                     height={1080}
-                    className="w-full h-auto z-100"
+                    className="w-full h-full object-cover z-100"
                   />
           </div>
 
         {/* RIGHT BORDER — fixed alignment and size */}
         
-          <div className="w-full h-full left-[-47.8%] absolute">
+          <div className="absolute right-0 top-0 h-full w-[5vw] min-w-[20px] max-w-[60px]">
             <Image 
-                    src="/BorderVertical.png"
+                    src="/Borderv.png"
                     alt="Border"
                     width={1920}
                     height={1080}
-                    className="w-full h-auto z-100"
+                    className="w-full h-full object-cover z-100 scale-x-[-1]"
                   />
           </div>
       </div>
