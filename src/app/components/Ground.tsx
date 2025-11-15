@@ -2,6 +2,7 @@ import React from 'react'
 import { motion } from 'framer-motion'
 import { useEffect, useState } from 'react';
 import useResponsiveScrollRatio from "./parallaxRatio";
+import { Images } from '../assets/CloudinaryAssets';
 
 
 const Ground = () => {
@@ -27,7 +28,7 @@ const Ground = () => {
     <div>
       
     <motion.img
-          src="/Ground_layer1.png"
+          src={Images.groundLayer1}
           alt="Layer 1"
           animate={{
                   y: scrollY * cloudScrollRatio, 
@@ -36,7 +37,7 @@ const Ground = () => {
         />
 
         <motion.img 
-          src="/Ground_layer2.png"
+          src={Images.groundLayer2}
           alt="Layer 2"
           className="absolute bottom-15 left-0 w-full h-1/2 z-31"
           initial={{ y: 0 }}
@@ -46,7 +47,7 @@ const Ground = () => {
 
 
         <motion.img 
-          src="/Ground_layer3.png"
+          src={Images.groundLayer3}
           alt="Layer 3"
           className="absolute bottom-7 left-0 w-full h-1/3 z-32"
           initial={{ y: 0 }}
@@ -55,7 +56,7 @@ const Ground = () => {
         />
 
         <motion.img 
-          src="/Ground_layer2.png"
+          src={Images.groundLayer2}
           alt="Layer 2"
           className="absolute bottom-[-50] left-0 w-full h-1/2 z-33"
           animate={{

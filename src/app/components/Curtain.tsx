@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
+import { Images } from "../assets/CloudinaryAssets";
 
 export default function Curtain({ onAnimationComplete } : { onAnimationComplete: () => void }) {
 
@@ -15,7 +16,7 @@ export default function Curtain({ onAnimationComplete } : { onAnimationComplete:
             className="absolute top-0 left-0 w-1/2 h-full z-100"
           >
             <Image 
-                src="/Curtain_2.png"
+                src={Images.curtain}
                 alt="Curtain"
                 fill
                 className="object-cover opacity-100"
@@ -31,7 +32,7 @@ export default function Curtain({ onAnimationComplete } : { onAnimationComplete:
             className="absolute top-0 right-0 w-1/2 h-full z-100"
           >
             <Image 
-                src="/Curtain_2.png"
+                src={Images.curtain}
                 alt="Curtain"
                 fill
                 className="object-cover opacity-100 transform scale-x-[-1]"

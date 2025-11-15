@@ -1,6 +1,14 @@
+'use client'
+import React, { useState, useEffect } from 'react';
 import { motion } from "framer-motion";
 import { useRouter } from "next/navigation";
 import DownloadButton from "./DownloadButton";
+import Image from "next/image";
+import { Images } from '../assets/CloudinaryAssets';
+// import CurtainReverse from './CurtainReverse';
+
+// create a typed alias so TS treats Next's Image as a valid JSX component
+// const NextImage = Image as unknown as ComponentType<any>;
 
 interface Magazine {
   index: number;
@@ -25,11 +33,15 @@ const CarouselElement = ({
 }: CarouselElementProps) => {
   const router = useRouter();
 
-  const handleViewClick = () => {
-    // Redirect based on magazine index: 0 -> latest, 1 -> old
-    const route = magazine.index === 0 ? '/magazine-latest' : '/magazine-old';
-    router.push(route);
-  };
+  const [viewClicked, setViewClicked] = useState(false);
+
+const handleAnimationComplete = () => {
+  // Redirect based on magazine index: 0 -> latest, 1 -> old
+  const route = magazine.index === 0 ? '/magazine-latest' : '/magazine-old';
+  router.push(route);
+
+
+};
 
   return (
     <motion.div
@@ -42,10 +54,17 @@ const CarouselElement = ({
         opacity: { duration: 0.4 },
       }}
     >
+
+        {/* <div className="absolute inset-0 z-50">
+          <CurtainReverse onAnimationComplete={handleAnimationComplete} />
+          </div> */}
+
       {/* Magazine Image */}
-      <img
+      <Image
         src={magazine.image}
         alt={magazine.title}
+        width={500}
+        height={700}
         className="h-[50vh] sm:h-[50vh] md:h-[60vh] w-auto object-contain"
       />
 
@@ -53,22 +72,22 @@ const CarouselElement = ({
       <div className="flex gap-4 items-center justify-center">
         {/* View Button */}
         <motion.button
-          onClick={handleViewClick}
-          className="relative py-3 px-8 text-xl font-semibold rounded-full text-white bg-transparent overflow-hidden focus:outline-none shadow-[0px_5px_30px_rgba(255,255,255,0.6)] hover:shadow-[0px_5px_30px_rgba(255,255,255,0.8)] transition-all duration-400 mt-6"
-          whileHover={{
-            scale: 1.05,
-            backgroundColor: "rgba(255, 255, 255, .6)",
-            color: "white",
-            transition: { duration: 0.1 },
-          }}
-          whileTap={{
-            scale: 0.95,
-            boxShadow: "0px 10px 20px rgba(255, 255, 255, 0.3)",
-            transition: { duration: 0.2 },
-          }}
-        >
-          <span className="relative z-10">View</span>
-        </motion.button>
+      onClick={() => {
+        handleAnimationComplete()
+        setMagNo(magazine.index);
+      }}
+      className="relative py-3 px-8 text-xl font-semibold rounded-full text-gray-800 bg-gray-200 hover:bg-gray-300 overflow-hidden focus:outline-none transition-all duration-300 mt-6 cursor-pointer z-10"
+      whileHover={{
+        scale: 1.1,
+        transition: { duration: 0.2 },
+      }}
+      whileTap={{
+        scale: 0.95,
+        transition: { duration: 0.1 },
+      }}
+    >
+      <span className="relative z-10">View</span>
+    </motion.button>
 
         {/* Download Button */}
         <DownloadButton

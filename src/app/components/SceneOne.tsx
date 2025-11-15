@@ -2,23 +2,28 @@
 
 import React from "react";
 import Ground from "./Ground";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion } from "framer-motion";
+import Image from "next/image";
+import { Images } from '../assets/CloudinaryAssets';
+// import BhorAnimation from "./BhorAnimation";
 
 export default function SceneOne() {
   return (
     <section className="relative w-full h-screen overflow-hidden">
-      
+
       {/* SKy Image */}
       <motion.div
         className="absolute inset-0 w-full h-full z-10"
         initial={{ y: 0 }}
-        animate={{ y: -350 }}
+        animate={{ y: -250 }}
         transition={{ duration: 7, delay: 1, ease: "linear" }}
       >
-        <img
-          src="/Sky_2.png"
+        <Image
+          src={Images.sky}
           alt="Sky"
+          fill
           className="w-full h-full object-cover"
+          priority
         />
       </motion.div>
 
@@ -30,9 +35,11 @@ export default function SceneOne() {
         animate={{ y: -30 }}
         transition={{ duration: 5, delay: 1, ease: "easeOut" }}
       >
-        <img
-          src="/sun.png"
+        <Image
+          src={Images.sun}
           alt="Sun"
+          width={500}
+          height={500}
           className="w-full h-auto"
         />
       </motion.div>
@@ -53,11 +60,11 @@ export default function SceneOne() {
 
         
         <motion.img
-          src="/p1.png"
+          src={Images.person1}
           alt="Person 1"
           className="w-full h-full"
           style={{ transformOrigin: "bottom" }}
-          animate={{ rotateX: [0, 30, 0] }}
+          animate={{ rotateZ: [0, 10, 0] }}
           transition={{
             duration: 2,
             repeat: Infinity,
@@ -76,11 +83,11 @@ export default function SceneOne() {
         transition={{ duration: 3, delay: 3.5, ease: "easeOut" }}
       >
         <motion.img
-          src="/p2.png"
+          src={Images.person2}
           alt="Person 2"
           className="w-full h-full transform scale-x-[-1]"
           style={{ transformOrigin: "bottom" }}
-          animate={{ rotateX: [0, 30, 0] }}
+          animate={{ rotateZ: [0, 10, 0] }}
           transition={{
             duration: 2,
             repeat: Infinity,
@@ -101,11 +108,11 @@ export default function SceneOne() {
 
         
         <motion.img
-          src="/p2.png"
+          src={Images.person2}
           alt="Person 3"
           className="w-full h-full"
           style={{ transformOrigin: "bottom" }}
-          animate={{ rotateX: [0, 30, 0] }}
+          animate={{ rotateZ: [0, 10, 0] }}
           transition={{
             duration: 2,
             repeat: Infinity,
@@ -115,6 +122,9 @@ export default function SceneOne() {
           }}
         />
       </motion.div>
+
+      <div className="absolute bottom-0 left-0 w-full h-32 z-50 pointer-events-none bg-gradient-to-b from-transparent to-black/100" />
+
     </section>
   );
 }

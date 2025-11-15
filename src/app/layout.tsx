@@ -26,77 +26,50 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-[#001d41]`}
       >
         {children}
-         <div className="fixed inset-0 z-50 pointer-events-none">
-        
-                {/* TOP BORDER */}
-                <div className="absolute top-0 left-0 w-full h-[5vw] min-h-[20px] max-h-[60px]">
-                  <Image 
-                          src="/Border.png"
-                          alt="Border"
-                          width={1920}
-                          height={1080}
-                          className="w-full h-auto z-50"
-                        />
-                </div>
-        
-                {/* BOTTOM BORDER */}
-                <div className="absolute bottom-0 left-0 w-full h-[5vw] min-h-[20px] max-h-[60px]">
-                  <Image 
-                          src="/Border.png"
-                          alt="Border"
-                          width={1920}
-                          height={1080}
-                          className="w-full h-auto z-50"
-                        />
-                </div>
-        
-                {/* LEFT BORDER — fixed alignment and size */}
-                
-                  <div className="absolute left-0 lg:w-18 w-6 h-full min-h-[20px] max-h-[60px]">
-                    <Image 
-                            src="/BorderVertical.png"
-                            alt="Border"
-                            width={1920}
-                            height={1080}
-                            className="w-full h-auto z-100"
-                          />
-                  </div>
+        <div className="fixed inset-0 z-50 pointer-events-none">
+          <div className="absolute top-0 left-0 w-full h-[5vw] md:h-[3vw] min-h-[20px] max-h-[60px] ">
+            <Image
+              src="/Border.png"
+              alt="Border"
+              width={1920}
+              height={1080}
+              className="w-full h-full z-50"
+            />
+          </div>
 
-                  <div className="lg:hidden absolute bottom-85 left-0 lg:w-18 w-6 h-full min-h-[20px] max-h-[60px]">
-                    <Image 
-                            src="/BorderVertical.png"
-                            alt="Border"
-                            width={1920}
-                            height={1080}
-                            className="w-full h-auto z-100"
-                          />
-                  </div>
-        
-                {/* RIGHT BORDER — fixed alignment and size */}
-                
-                  <div className="lg:hidden absolute bottom-85 right-0 lg:w-18 w-6 h-full min-h-[20px] max-h-[60px]">
-                    <Image 
-                            src="/BorderVertical.png"
-                            alt="Border"
-                            width={1920}
-                            height={1080}
-                            className="w-full h-auto z-100"
-                          />
-                  </div>
+          <div className="absolute bottom-0 left-0 w-full h-[3vw] min-h-[20px] max-h-[60px]">
+            <Image
+              src="/Border.png"
+              alt="Border"
+              width={1920}
+              height={1080}
+              className="w-full h-full z-50"
+            />
+          </div>
 
-                  <div className="absolute right-0 lg:w-18 w-6 h-full min-h-[20px] max-h-[60px]">
-                    <Image 
-                            src="/BorderVertical.png"
-                            alt="Border"
-                            width={1920}
-                            height={1080}
-                            className="w-full h-auto z-100"
-                          />
-                  </div>
-              </div>
+          <div className="absolute left-0 top-0 lg:w-12 w-6 h-full">
+            <Image
+              src="/BorderVertical.png"
+              alt="Border"
+              width={1920}
+              height={1080}
+              className="w-full h-full z-100"
+            />
+          </div>
+
+          <div className="absolute right-0 top-0 lg:w-12 w-6 h-full">
+            <Image
+              src="/BorderVertical.png"
+              alt="Border"
+              width={1920}
+              height={1080}
+              className="w-full h-full z-100"
+            />
+          </div>
+        </div>
       </body>
     </html>
   );

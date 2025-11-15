@@ -15,22 +15,29 @@ interface Magazine {
 }
 
 const DownloadButton = ({ setMagNo, magazine, setDwnldIsClicked }: DownloadButtonProps) => {
+  const handleDownload = () => {
+    setDwnldIsClicked(true);
+    setMagNo(magazine.index);
+    // Trigger file download
+    const link = document.createElement('a');
+    link.href = magazine.url;
+    link.download = magazine.url.split('/').pop() || 'magazine.pdf';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
+
   return (
     <motion.button
-      onClick={() => {
-        setDwnldIsClicked(true)
-        setMagNo(magazine.index)}}
-      className="relative py-3 px-8 text-xl font-semibold rounded-full text-white bg-transparent overflow-hidden focus:outline-none shadow-[0px_5px_30px_rgba(255,255,255,0.6)] hover:shadow-[0px_5px_30px_rgba(255,255,255,0.8)] transition-all duration-400 mt-6"
+      onClick={handleDownload}
+      className="relative py-3 px-8 text-xl font-semibold rounded-full text-gray-800 bg-gray-200 hover:bg-gray-300 overflow-hidden focus:outline-none transition-all duration-300 mt-6 cursor-pointer z-10"
       whileHover={{
-        scale: 1.05,
-        backgroundColor: "rgba(255, 255, 255, .6)", // Slowly turn inside white
-        color: "white", // Make the text transparent
-        transition: { duration: 0.1 },
+        scale: 1.1,
+        transition: { duration: 0.2 },
       }}
       whileTap={{
         scale: 0.95,
-        boxShadow: "0px 10px 20px rgba(255, 255, 255, 0.3)",
-        transition: { duration: 0.2 },
+        transition: { duration: 0.1 },
       }}
     >
       <span className="relative z-10">Download</span>

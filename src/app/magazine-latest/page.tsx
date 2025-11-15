@@ -1,6 +1,7 @@
 'use client'
 import React from 'react';
 import Book from '../components/magazine/Book';
+import Curtain from '../components/Curtain';
 
 
 
@@ -19,6 +20,12 @@ export default function MagazinePage() {
         className="h-screen w-screen bg-cover bg-center bg-no-repeat overflow-hidden fixed inset-0" 
         style={{ backgroundImage: 'url(/book/background.jpg)' }}
       >
+        <div className='absolute inset-0 w-full h-full z-100'>
+          <Curtain onAnimationComplete={() => {
+            // Allow scrolling after curtain animation completes
+            document.body.style.overflow = 'auto';
+          }} />
+        </div>
         <Book />
       </div>
     );

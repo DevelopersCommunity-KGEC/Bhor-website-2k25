@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { AnimatePresence } from "framer-motion";
-
+import { Images } from "../assets/CloudinaryAssets";
 import CarouselElement from "./CarouselElement";
 import { IoIosArrowBack } from "react-icons/io";
 import { IoIosArrowForward } from "react-icons/io";
@@ -10,14 +10,21 @@ const Magazines = [
     index: 0,
     year: 2023,
     title: "Bhor 2023",
-    image: '/bhorCover2023.png',
+    image: Images.bhor2023,
     url: "/magazineview2023",
   },
   {
     index: 1,
     year: 2024,
     title: "Bhor 2024",
-    image: '/bhorCover2024.png',
+    image: Images.bhor2024,
+    url: "/magazineview2024",
+  },
+  {
+    index: 2,
+    year: 2025,
+    title: "Bhor 2025",
+    image: Images.bhor2025,
     url: "/magazineview2024",
   },
 ];
@@ -26,6 +33,7 @@ const Magazines = [
 interface AutoCarouselProps {
   currentIndex: number;
   setCurrentIndex: React.Dispatch<React.SetStateAction<number>>;
+  setViewClicked: React.Dispatch<React.SetStateAction<boolean>>;
   setDwnldIsClicked: React.Dispatch<React.SetStateAction<boolean>>;
   setMagNo: React.Dispatch<React.SetStateAction<number>>;
   bhorEnded: boolean;
@@ -90,13 +98,13 @@ const AutoCarousel = ({
       {/* Navigation Arrows */}
       <button
         onClick={handlePrev}
-        className="z-[2] absolute left-20 top-1/2 transform -translate-y-1/2 text-white p-2 rounded-full hover:bg-gray-600"
+        className="z-[2] absolute lg:left-20 left-4 top-1/2 transform -translate-y-1/2 text-white p-2 rounded-full hover:bg-gray-600"
       >
         <IoIosArrowBack className="text-2xl" />
       </button>
       <button
         onClick={handleNext}
-        className="z-[2] absolute right-20 top-1/2 transform -translate-y-1/2 text-white p-2 rounded-full hover:bg-gray-600"
+        className="z-[2] absolute lg:right-20 right-4 top-1/2 transform -translate-y-1/2 text-white p-2 rounded-full hover:bg-gray-600"
       >
         <IoIosArrowForward className="text-2xl" />
       </button>

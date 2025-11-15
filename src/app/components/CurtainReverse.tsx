@@ -1,9 +1,20 @@
 "use client";
 
 import { motion } from "framer-motion";
+import React, { useState, useEffect } from "react";
 import Image from "next/image";
+import { Images } from "../assets/CloudinaryAssets";
 
-export default function CurtainReverse({ onAnimationComplete } : { onAnimationComplete: () => void }) {
+export default function CurtainReverse({onAnimationComplete}: {onAnimationComplete: () => void}) {
+
+  const [leftCurtainDone, setLeftCurtainDone] = useState(false);
+  const [rightCurtainDone, setRightCurtainDone] = useState(false);
+
+  useEffect(() => {
+    if (leftCurtainDone && rightCurtainDone) {
+      onAnimationComplete();
+    }
+  }, [leftCurtainDone, rightCurtainDone, onAnimationComplete]);
 
   return (
     <div className="relative w-screen h-screen overflow-hidden">
@@ -12,10 +23,11 @@ export default function CurtainReverse({ onAnimationComplete } : { onAnimationCo
             initial={{ x: "-100vw" }}
             animate={{ x: 0 }}
             transition={{ duration: 5, ease: [0.8, 0, 0.2, 0.5] }}
+            onAnimationComplete={() => setLeftCurtainDone(true)}
             className="absolute top-0 left-0 w-1/2 h-full z-100"
           >
             <Image 
-                src="/Curtain_2.png"
+                src={Images.curtain}
                 alt="Curtain"
                 fill
                 className="object-cover opacity-100"
@@ -27,11 +39,11 @@ export default function CurtainReverse({ onAnimationComplete } : { onAnimationCo
             initial={{ x: "100vw" }}
             animate={{ x: 0 }}
             transition={{ duration: 5, ease: [0.8, 0, 0.2, 0.5] }}
-            onAnimationComplete={onAnimationComplete}
+            onAnimationComplete={() => setRightCurtainDone(true)}
             className="absolute top-0 right-0 w-1/2 h-full z-100"
           >
             <Image 
-                src="/Curtain_2.png"
+                src={Images.curtain}
                 alt="Curtain"
                 fill
                 className="object-cover opacity-100 transform scale-x-[-1]"
