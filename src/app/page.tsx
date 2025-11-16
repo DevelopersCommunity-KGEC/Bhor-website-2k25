@@ -50,14 +50,13 @@ export default function Home() {
   }, [viewClicked, dwnldIsClicked, magNo, Router, showCurtain]);
 
   return (
-    <div className="bg-[#001d41] snap-y snap-mandatory">
+    <div className="bg-[#001d41]">
       {!canScroll && (
         <div className="absolute top-0 left-0 w-full h-full z-[100]">
           <Curtain onAnimationComplete={handleCurtain} />
         </div>
       )}
 
-      <div className="snap-center">
       <div className="hidden lg:block">
         <SceneOne bhorEnded={bhorEnded} setBhorEnded={setBhorEnded} />
       </div>
@@ -65,6 +64,7 @@ export default function Home() {
       <div className="block lg:hidden">
         <SceneOneMobile bhorEnded={bhorEnded} setBhorEnded={setBhorEnded} />
       </div>
+
 
       <TextComponent setAllAnimationEnd={setAllAnimationEnd} />
 
@@ -90,9 +90,7 @@ export default function Home() {
         <>
           <DownArrow setArrowClicked={setArrowClicked} />
           </>)}
-          </div>
 
-          <div className="snap-center">
             <SecondSection
               bhorEnded={bhorEnded}
               setBhorEnded={setBhorEnded}
@@ -100,7 +98,6 @@ export default function Home() {
               setDwnldIsClicked={setDwnldIsClicked}
               setMagNo={setMagNo}
             />
-            </div>
       
 </div>
 );
