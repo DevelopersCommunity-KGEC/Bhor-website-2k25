@@ -15,17 +15,19 @@ interface Magazine {
 }
 
 const DownloadButton = ({ setMagNo, magazine, setDwnldIsClicked }: DownloadButtonProps) => {
-  const handleDownload = () => {
-    setDwnldIsClicked(true);
-    setMagNo(magazine.index);
-    // Trigger file download
-    const link = document.createElement('a');
-    link.href = magazine.url;
-    link.download = magazine.url.split('/').pop() || 'magazine.pdf';
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
-  };
+
+const handleDownload = () => {
+  setDwnldIsClicked(true);
+  setMagNo(magazine.index);
+
+  const link = document.createElement("a");
+  link.href = magazine.url;
+  link.download = `Bhor${magazine.year}.pdf`;   // cleaner
+  document.body.appendChild(link);
+  link.click();
+  document.body.removeChild(link);
+};
+
 
   return (
     <motion.button

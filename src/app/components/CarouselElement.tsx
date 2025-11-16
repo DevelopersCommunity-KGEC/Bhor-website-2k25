@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import { useRouter } from "next/navigation";
 import DownloadButton from "./DownloadButton";
 import Image from "next/image";
-import { Images } from '../assets/CloudinaryAssets';
+// import { Images } from '../assets/CloudinaryAssets';
 // import CurtainReverse from './CurtainReverse';
 
 // create a typed alias so TS treats Next's Image as a valid JSX component
@@ -37,8 +37,8 @@ const CarouselElement = ({
 
 const handleAnimationComplete = () => {
   // Redirect based on magazine index: 0 -> latest, 1 -> old
-  const route = magazine.index === 0 ? '/magazine-latest' : '/magazine-old';
-  router.push(route);
+  // const route = magazine.index === 0 ? '/magazine-latest' : '/magazine-old';
+  router.push(`/bhor/${magazine.index+2023}`);
 
 
 };

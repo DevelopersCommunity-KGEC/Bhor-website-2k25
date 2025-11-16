@@ -50,7 +50,7 @@ export default function Home() {
   }, [viewClicked, dwnldIsClicked, magNo, Router, showCurtain]);
 
   return (
-    <>
+    <div className="bg-[#001d41]">
       {!canScroll && (
         <div className="absolute top-0 left-0 w-full h-full z-[100]">
           <Curtain onAnimationComplete={handleCurtain} />
@@ -98,6 +98,6 @@ export default function Home() {
             />
         </>
       )}
-    </>
+    </div>
   );
 }
