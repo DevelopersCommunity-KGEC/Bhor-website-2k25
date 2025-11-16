@@ -6,6 +6,7 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import { Images } from '../assets/CloudinaryAssets';
 import BhorAnimation from "./BhorAnimation";
+import TextComponent from "./TextComponent";
 
 export default function SceneOne({ setBhorEnded } : {
         bhorEnded: boolean;
@@ -28,7 +29,7 @@ export default function SceneOne({ setBhorEnded } : {
     <section className="relative w-full h-screen overflow-hidden">
 
       {/* Sky Background with Bhor Animation */}
-            <div className="absolute inset-x-0 z-30 flex justify-center pt-4 px-4 mt-45">
+            <div className="absolute inset-x-0 z-30 flex justify-center pt-4 px-4 mt-47">
                 <BhorAnimation setBhorEnded={setBhorEnded} />
             </div>
 

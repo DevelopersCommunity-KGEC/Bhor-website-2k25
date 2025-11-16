@@ -45,7 +45,7 @@ export default function MagazinePage({ params }: { params: Promise<{ year: strin
                       const vid = videoRefMobile.current;
                       if (!vid) return;
                       vid.playbackRate = 0.6;
-                      const onLoaded = () => { vid.playbackRate = 0.1; };
+                      const onLoaded = () => { vid.playbackRate = 0.15; };
                       vid.addEventListener("loadedmetadata", onLoaded);
                       return () => vid.removeEventListener("loadedmetadata", onLoaded);
                     }, []);
@@ -53,31 +53,29 @@ export default function MagazinePage({ params }: { params: Promise<{ year: strin
     if (!pages) return notFound(); // handle invalid years
 
   return (
-    <div className="h-screen w-full flex items-center justify-center relative px-4 lg:px-16 overflow-hidden">
+    <div className="h-screen w-full flex items-center justify-center relative px-4 lg:px-16 overflow-hidden bg-black">
 
          <video
                                 ref={videoRef}
-                                className="absolute inset-0 w-full h-full object-cover z-0 opacity-100 hidden lg:block"
+                                className="absolute inset-0 w-full h-full object-cover z-0 opacity-50 hidden lg:block"
                                 autoPlay
                                 muted
                                 loop
                                 playsInline
                                 preload="auto"
                                 aria-hidden="true"
-                                poster="/videos/bg-poster.jpg"
                               >
                                 <source src={Videos.SecondSectionBG} type="video/mp4" />
                               </video>
                 <video
                                 ref={videoRefMobile}
-                                className="absolute inset-0 w-full h-full object-cover z-0 opacity-100 lg:hidden block"
+                                className="absolute inset-0 w-full h-full object-cover z-0 opacity-50 lg:hidden block"
                                 autoPlay
                                 muted
                                 loop
                                 playsInline
                                 preload="auto"
                                 aria-hidden="true"
-                                poster="/videos/bg-poster.jpg"
                               >
                                 <source src={Videos.SecondSectionBG} type="video/mp4" />
                               </video>
@@ -86,7 +84,7 @@ export default function MagazinePage({ params }: { params: Promise<{ year: strin
             {/* Left Arrow Button */}
             <button
               onClick={handlePrevPage}
-              className="absolute left-2 md:left-0 top-1/2 -translate-y-1/2 z-10 bg-white/80 hover:bg-white p-2 md:p-3 rounded-full shadow-lg transition-all duration-200 hover:scale-11 cursor-pointer"
+              className="absolute left-2 md:left-0 top-1/2 -translate-y-1/2 z-10 bg-white/60 hover:bg-white p-2 md:p-3 rounded-full shadow-lg transition-all duration-200 hover:scale-110 cursor-pointer"
               aria-label="Previous page"
             >
               <IoIosArrowBack className="text-xl md:text-3xl text-gray-800" />
@@ -149,7 +147,7 @@ export default function MagazinePage({ params }: { params: Promise<{ year: strin
             {/* Right Arrow Button */}
             <button
               onClick={handleNextPage}
-              className="absolute right-2 md:right-0 top-1/2 -translate-y-1/2 z-10 bg-white/80 hover:bg-white p-2 md:p-3 rounded-full shadow-lg transition-all duration-200 hover:scale-110 cursor-pointer"
+              className="absolute right-2 md:right-0 top-1/2 -translate-y-1/2 z-10 bg-white/60 hover:bg-white p-2 md:p-3 rounded-full shadow-lg transition-all duration-200 hover:scale-110 cursor-pointer"
               aria-label="Next page"
             >
               <IoIosArrowForward className="text-xl md:text-3xl text-gray-800" />

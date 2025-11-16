@@ -27,10 +27,10 @@ const SecondSection = ({
   setBhorEnded,
 }: SecondSectionProps) => {
   const videoRef = useRef<HTMLVideoElement | null>(null);
+  const videoRefMobile = useRef<HTMLVideoElement | null>(null);
   const [hasAppeared, setHasAppeared] = useState(false); // Track if the animation has already been triggered
   const { smallScreen } = useResponsiveScrollRatio();
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [hasChanged, setHasChanged] = useState(true);
 
   const { ref, inView } = useInView({
     triggerOnce: true, // Trigger only once when it comes into view
@@ -53,6 +53,14 @@ const SecondSection = ({
     vid.addEventListener("loadedmetadata", onLoaded);
     return () => vid.removeEventListener("loadedmetadata", onLoaded);
   }, []);
+  useEffect(() => {
+    const vid = videoRefMobile.current;
+    if (!vid) return;
+    vid.playbackRate = 0.6;
+    const onLoaded = () => { vid.playbackRate = 0.15; };
+    vid.addEventListener("loadedmetadata", onLoaded);
+    return () => vid.removeEventListener("loadedmetadata", onLoaded);
+  }, []);
 
   return (
     <div
@@ -69,14 +77,25 @@ const SecondSection = ({
       {/* Background video - put file at public/videos/bg.mp4 or replace src with remote URL */}
       <video
         ref={videoRef}
-        className="absolute inset-0 w-full h-full object-cover z-0 opacity-40"
+        className="absolute inset-0 w-full h-full object-cover z-0 opacity-50 hidden lg:block"
         autoPlay
         muted
         loop
         playsInline
         preload="auto"
         aria-hidden="true"
-        poster="/videos/bg-poster.jpg"
+      >
+        <source src={Videos.SecondSectionBG} type="video/mp4" />
+      </video>
+      <video
+        ref={videoRefMobile}
+        className="absolute inset-0 w-full h-full object-cover z-0 opacity-50 lg:hidden block"
+        autoPlay
+        muted
+        loop
+        playsInline
+        preload="auto"
+        aria-hidden="true"
       >
         <source src={Videos.SecondSectionBG} type="video/mp4" />
       </video>
