@@ -125,7 +125,7 @@ const SecondSection = ({
               transition={{ duration: 3.2 }}
               className="z-10"
             >
-              {currentIndex == 0 ? <BhorSvgFirst /> : currentIndex == 1 ? <BhorSvgSecond /> : <BhorSVG2025 />}
+              {currentIndex == 0 ? <BhorSVG2025 /> : currentIndex == 1 ? <BhorSvgSecond /> : <BhorSvgFirst />}
             </motion.div>
         </div>
       )}
