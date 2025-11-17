@@ -36,7 +36,7 @@ const CarouselElement = ({
 const handleAnimationComplete = () => {
   // Redirect based on magazine index: 0 -> latest, 1 -> old
   // const route = magazine.index === 0 ? '/magazine-latest' : '/magazine-old';
-  router.push(`/bhor/${magazine.index+2023}`);
+  router.push(`/bhor/${magazine.year}`);
 };
 
   return (

@@ -8,10 +8,10 @@ import { IoIosArrowForward } from "react-icons/io";
 const Magazines = [
   {
     index: 0,
-    year: 2023,
-    title: "Bhor 2023",
-    image: Images.bhor2023,
-    url: "/pdfs/Bhor2023",
+    year: 2025,
+    title: "Bhor 2025",
+    image: Images.bhor2025,
+    url: "/pdfs/Bhor2025",
   },
   {
     index: 1,
@@ -22,10 +22,10 @@ const Magazines = [
   },
   {
     index: 2,
-    year: 2025,
-    title: "Bhor 2025",
-    image: Images.bhor2025,
-    url: "/pdfs/Bhor2025",
+    year: 2023,
+    title: "Bhor 2023",
+    image: Images.bhor2023,
+    url: "/pdfs/Bhor2023",
   },
 ];
 
